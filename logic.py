@@ -4,15 +4,9 @@ import json
 from datetime import datetime
 import os
 
-# ==============================================================================
-# LLM Client Initialization
-# ==============================================================================
-try:
-    from openai import OpenAI
-    client = OpenAI(api_key="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")
-except ImportError:
-    client = None
-    print("⚠️ Warning: openai library is not installed. Please run `pip install openai`")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    raise RuntimeError("OPENAI_API_KEY is not set")
 
 # ==============================================================================
 # Core Data Processing Pipeline

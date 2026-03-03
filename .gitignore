@@ -1,2 +1,6 @@
 /gemini.py
 /test.py
+.env
+*.env
+__pycache__/
+*.pyc

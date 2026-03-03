@@ -109,7 +109,7 @@ cd DLW2026
 pip install streamlit pandas numpy plotly openai
 
 # Set your OpenAI API key
-export OPENAI_API_KEY="sk-your-key-here"
+export OPENAI_API_KEY="YOUR_OPENAI_KEY_HERE"
 
 # Run the app
 streamlit run frontend.py
