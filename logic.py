@@ -2,7 +2,10 @@ import pandas as pd
 import numpy as np
 import json
 from datetime import datetime
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
