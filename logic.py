@@ -2,14 +2,25 @@ import pandas as pd
 import numpy as np
 import json
 from datetime import datetime
-from dotenv import load_dotenv
 import os
-
+from dotenv import load_dotenv
 load_dotenv()
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-if not OPENAI_API_KEY:
-    raise RuntimeError("OPENAI_API_KEY is not set")
+# ==============================================================================
+# LLM Client Initialization
+# ==============================================================================
+client = None
+try:
+    from openai import OpenAI
+    _api_key = os.environ.get("OPENAI_API_KEY", "")
+    if _api_key:
+        client = OpenAI(api_key=_api_key)
+    else:
+        print("⚠️ Warning: OPENAI_API_KEY not found in environment. Check your .env file.")
+except ImportError:
+    print("⚠️ Warning: openai library is not installed. Please run `pip install openai`")
+except Exception as e:
+    print(f"⚠️ Warning: Failed to initialize OpenAI client: {e}")
 
 # ==============================================================================
 # Core Data Processing Pipeline
