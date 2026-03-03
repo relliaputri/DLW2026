@@ -67,26 +67,27 @@ The system explains *why* each topic is ranked where it is — no black boxes.
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    FRONTEND (test2.py)                   │
-│              Streamlit + Plotly + Custom CSS             │
-├─────────────────────────────────────────────────────────┤
-│  Dashboard  │  Course Analytics  │  Deep Dive  │ Settings│
-│  • Metrics  │  • Mastery bars    │  • Decay    │ • AI    │
-│  • Deltas   │  • Scatter plot    │  • Trends   │ • Model │
-│  • Progress │  • AI Explanation  │  • Diagnosis│ • λ     │
-├─────────────────────────────────────────────────────────┤
-│                    BACKEND (logic.py)                    │
-│              NumPy + Pandas + OpenAI API                 │
-├─────────────────────────────────────────────────────────┤
-│  Ebbinghaus  │  Four-Quadrant  │  Trend      │  Priority│
-│  Mastery     │  Diagnosis      │  Detection  │  Scoring │
-│  Decay Model │  (E_r × R_t)    │  (polyfit)  │  (α,β,γ) │
-├─────────────────────────────────────────────────────────┤
-│                   LLM INTEGRATION                       │
-│  AI Feedback │ Explanation │ Goal Mode │ Context         │
-│  Agent       │ Generator   │ Scheduler │ Injection       │
-└─────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────┐
+│              FRONTEND (frontend.py)                │
+│           Streamlit + Plotly + Custom CSS          │
+├────────────┬───────────────┬──────────┬────────────┤
+│ Dashboard  │ Course Analyt │ Deep Dive│  Settings  │
+│ • Metrics  │ • Mastery bar │ • Decay  │  • AI Cfg  │
+│ • Deltas   │ • Scatter plot│ • Trends │  • Model   │
+│ • Progress │ • AI Explain  │ • Diag   │  • Lambda  │
+├────────────┴───────────────┴──────────┴────────────┤
+│                BACKEND (logic.py)                   │
+│             NumPy + Pandas + OpenAI API             │
+├────────────┬───────────────┬──────────┬────────────┤
+│ Ebbinghaus │ Four-Quadrant │  Trend   │  Priority  │
+│ Mastery    │ Diagnosis     │ Detection│  Scoring   │
+│ Decay Model│ (E_r × R_t)  │ (polyfit)│  (α,β,γ)   │
+├────────────┴───────────────┴──────────┴────────────┤
+│               LLM INTEGRATION                      │
+├────────────┬───────────────┬──────────┬────────────┤
+│ AI Feedback│ Explanation   │ Goal Mode│  Context   │
+│ Agent      │ Generator     │ Scheduler│  Injection │
+└────────────┴───────────────┴──────────┴────────────┘
 ```
 
 ---
@@ -111,7 +112,7 @@ pip install streamlit pandas numpy plotly openai
 export OPENAI_API_KEY="sk-your-key-here"
 
 # Run the app
-streamlit run test2.py
+streamlit run frontend.py
 ```
 
 ### Usage
@@ -176,7 +177,7 @@ Weekly accuracy is fitted with linear regression (`np.polyfit`). The slope deter
 
 ## 👥 Team
 
-Built with ❤️ for **DLW Hackathon 2026**
+Built by ***Deep Sleeping Week*** for ***Deep Learning Week (DLW) Hackathon 2026***
 
 ---
 
